@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t danialumer876/jenkins-demo:latest .'
+        sh 'sudo docker build -t danialumer876/jenkins-demo:latest .'
       }
     }
     stage('Login') {
