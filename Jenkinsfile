@@ -14,18 +14,18 @@ pipeline {
     }
     stage('Login') {
       steps {
-        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+        sh 'sudo echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
       }
     }
     stage('Push') {
       steps {
-        sh 'docker push danialumer876/jenkins-demo:latest'
+        sh 'sudo docker push danialumer876/jenkins-demo:latest'
       }
     }
   }
   post {
     always {
-      sh 'docker logout'
+      sh 'sudo docker logout'
     }
   }
 }
